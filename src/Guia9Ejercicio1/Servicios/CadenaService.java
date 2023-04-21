@@ -1,9 +1,9 @@
-package Servicios;
+package Guia9Ejercicio1.Servicios;
 
 import java.util.Arrays;
 import java.util.Scanner;
 
-import Entidades.Cadena;
+import Guia9Ejercicio1.Entidades.Cadena;
 
 public class CadenaService {
     private Scanner leer = new Scanner(System.in);

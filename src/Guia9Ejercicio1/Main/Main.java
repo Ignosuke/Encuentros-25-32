@@ -1,7 +1,7 @@
-package Main;
+package Guia9Ejercicio1.Main;
 
-import Entidades.Cadena;
-import Servicios.CadenaService;
+import Guia9Ejercicio1.Entidades.Cadena;
+import Guia9Ejercicio1.Servicios.CadenaService;
 
 public class Main {
     public static void main(String[] args) {

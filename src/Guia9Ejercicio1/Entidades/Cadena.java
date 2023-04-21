@@ -1,4 +1,4 @@
-package Entidades;
+package Guia9Ejercicio1.Entidades;
 
 public class Cadena {
     private String frase;
