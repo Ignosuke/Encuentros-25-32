@@ -1,4 +1,4 @@
-package Guia9Ejercicio4.Servicios;
+package Guia9Ejercicio4y5.Servicios;
 
 import java.util.Date;
 import java.util.Scanner;
@@ -22,7 +22,8 @@ public class DateService {
 
     public int diferencia(Date actual, Date nacimiento) {
         int edad = actual.getYear() - nacimiento.getYear();
-        if (actual.compareTo(nacimiento) > 0) {
+        if (actual.getMonth() < nacimiento.getMonth()
+        || (actual.getMonth() == nacimiento.getMonth() && actual.getDay() < nacimiento.getDay())) {
             edad--;
         }
         return edad;
