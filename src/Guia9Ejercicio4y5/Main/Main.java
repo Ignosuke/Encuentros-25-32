@@ -9,10 +9,11 @@ public class Main {
         DateService ds = new DateService();
         PersonaService ps = new PersonaService();
         Persona p = ps.crearPersona(ds);
+
         System.out.println();
         ps.calcularEdad(p, ds);
         System.out.println();
-        ps.menorQue(p, ds, 35);
+        ps.menorQue(p, ds, 21);
         System.out.println();
         ps.mostrarPersona(p, ds);
     }
