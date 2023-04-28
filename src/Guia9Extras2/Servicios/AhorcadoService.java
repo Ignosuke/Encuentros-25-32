@@ -11,7 +11,7 @@ public class AhorcadoService {
     private final int indice = (int) (Math.random()*9+1);
 
     public Ahorcado crearJuego() {
-        return new Ahorcado(palabras[indice],10);
+        return new Ahorcado(palabras[indice]);
     }
 
     public void longitud(Ahorcado a) {
@@ -19,15 +19,23 @@ public class AhorcadoService {
     }
 
     public void buscar(Ahorcado a) {
+        System.out.println("\n" + a.getAux() +  "\n");
         System.out.print("Ingrese una letra: ");
-        char letra = leer.next().charAt(0);
+        char letra = leer.next().toLowerCase().charAt(0);
         System.out.println();
+        int veces = 0;
         for (int i = 0; i < a.getLetras().length; i++) {
-            if (a.getLetras()[i] == letra) {
+            if (a.getLetras()[i] == letra && letra != '@') {
                 a.setEncontradas(a.getEncontradas()+1);
                 a.setFaltantes(a.getFaltantes()-1);
                 a.setLetraEncontrada(i);
+                veces++;
             }
+        }
+        if (veces > 0) {
+            System.out.println("La letra se encontró " + veces + " vez/veces");
+        } else {
+            a.setIntentos(a.getIntentos()-1);
         }
     }
 
@@ -49,12 +57,12 @@ public class AhorcadoService {
         System.out.println("\n============================================\n");
 
         while (a.getIntentos() > 0 && a.getFaltantes() > 0) {
-            a.setIntentos(a.getIntentos()-1);
             buscar(a);
             mostrarEncontradasFaltantes(a);
             mostrarIntentos(a);
             System.out.println("\n============================================\n");
         }
+
         if (a.getFaltantes() == 0) {
             System.out.println("Felicidades! Adivinaste la palabra " + palabras[indice]);
         } else {

@@ -1,16 +1,21 @@
 package Guia9Extras2.Entidades;
 
+import java.util.Arrays;
+
 public class Ahorcado {
     private String palabra;
     private char[] letras;
-    private int encontradas, faltantes, intentos;
+    private String[] aux;
+    private int encontradas, faltantes, intentos = 5;
 
-    public Ahorcado(String palabra, int intentos) {
+    public Ahorcado(String palabra) {
         this.palabra = palabra;
         letras = this.palabra.toCharArray();
-        this.intentos = intentos;
         this.encontradas = 0;
         this.faltantes = palabra.length();
+        
+        aux = new String[palabra.length()];
+        Arrays.fill(aux, "__");
     }
 
     public String getPalabra() {
@@ -21,7 +26,12 @@ public class Ahorcado {
         return letras;
     }
 
+    public String getAux() {
+        return Arrays.toString(aux);
+    }
+
     public void setLetraEncontrada(int indice) {
+        this.aux[indice] = "" + letras[indice];
         this.letras[indice] = '@';
     }
 
